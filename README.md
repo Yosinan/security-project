@@ -16,7 +16,7 @@ This project is a comprehensive implementation of a secure Access Control and Au
 
 1. Clone the repository
     ```bash
-    git clone 
+    git clone https://github.com/Yosinan/security-project.git
     ```
 2. Change into the project directory
     ```bash
