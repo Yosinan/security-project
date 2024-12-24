@@ -48,5 +48,5 @@ This project is a comprehensive implementation of a secure Access Control and Au
     ```
 8. The server should now be running at [http://localhost:3000](http://localhost:3000)
 
-## API Documentation
-The API documentation is available at [http://localhost:3000/api-docs](http://localhost:3000/api-docs) after starting the server.
+<!-- ## API Documentation
+The API documentation is available at [http://localhost:3000/api-docs](http://localhost:3000/api-docs) after starting the server. -->
