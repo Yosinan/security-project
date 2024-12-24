@@ -32,10 +32,10 @@ This project is a comprehensive implementation of a secure Access Control and Au
     PORT=3000
     DB_HOST=localhost
     DB_PORT=5432
-    DB_USER=postgres
-    DB_PASSWORD=postgres
-    DB_NAME=auth_system
-    JWT_SECRET=secret
+    DB_USER=db_user
+    DB_PASSWORD=db_password
+    DB_NAME=db_name
+    JWT_SECRET=jwt_secret
     ```
 5. Create a database in PostgreSQL with the name specified in the `.env` file
 6. Run the database migrations
