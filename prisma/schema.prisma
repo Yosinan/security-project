@@ -1,0 +1,53 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id       String     @id @default(cuid())
+  username String     @unique
+  name     String?
+  avatar   String?
+  email    String     @unique
+  password String
+  roles    UserRole[]
+  logs     Log[]      @relation("UserLogs")
+
+  failedLoginAttempts Int       @default(0)
+  isLocked            Boolean   @default(false)
+  lockoutUntil        DateTime?
+
+  mfaSecret String? // This field is only used if the user has enabled MFA
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Role {
+  id          String     @id @default(cuid())
+  name        String     @unique
+  permissions String[]
+  users       UserRole[]
+}
+
+model UserRole {
+  id        Int      @id @default(autoincrement())
+  userId    String
+  roleId    String
+  user      User     @relation(fields: [userId], references: [id])
+  role      Role     @relation(fields: [roleId], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Log {
+  id        String   @id @default(cuid())
+  user      User     @relation("UserLogs", fields: [userId], references: [id])
+  userId    String
+  action    String
+  timestamp DateTime @default(now())
+  ip        String
+}
